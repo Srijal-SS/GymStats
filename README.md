@@ -1,10 +1,10 @@
 # GymStats
-GymStats helps to tracks and analyse you workout it details
+GymStats helps to tracks your workout it details
 
-💪 RepTrack
+💪 GymStats
 
-RepTrack is a modern Gym Workout Tracking and Analysis Web App built using React.
-It helps users log workouts, track progress, and analyze performance over time in a simple and intuitive way.
+GymStats is a Gym Workout Tracking.
+It helps users log workouts and track progress.
 
 ⸻
 
@@ -13,7 +13,6 @@ It helps users log workouts, track progress, and analyze performance over time i
 	•	🔍 Search exercises
 	•	🏷 Filter workouts (by muscle group / date)
 	•	⬆️⬇️ Sort workouts (by weight, reps, volume)
-	•	📊 Track progress over time
 	•	💪 View exercise details using public API
 	•	💾 Save data locally (localStorage)
 
@@ -23,8 +22,6 @@ It helps users log workouts, track progress, and analyze performance over time i
 	•	Users add workout entries (e.g., Bench Press, 80kg, 8 reps)
 	•	The app calculates metrics like:
 	•	Volume = Sets × Reps × Weight
-	•	Progress = Improvement over previous workouts
-	•	Data is displayed dynamically using React components
 
 ⸻
 
