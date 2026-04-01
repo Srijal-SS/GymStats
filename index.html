@@ -1,13 +1,109 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>gymstats</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GymStats</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #f8fafc;
+      color: #0f172a;
+    }
+  </style>
+</head>
+<body class="antialiased font-sans">
+  <div class="max-w-6xl mx-auto px-4 pb-12">
+    <header class="py-6 mb-8 border-b border-gray-200">
+      <h1 class="text-3xl font-bold text-sky-500 flex items-center gap-2">
+        GymStats
+      </h1>
+    </header>
+
+    <main>
+      <section class="mb-12">
+        <h2 class="text-xl font-semibold mb-4 text-slate-900">Search Exercises</h2>
+        <form id="search-form" class="flex flex-wrap gap-4 mb-8">
+          <input 
+            type="text" 
+            id="search-input"
+            placeholder="Search exercises (e.g. squat, deadlift)" 
+            class="flex-1 min-w-[200px] p-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-sky-500"
+          />
+          <select 
+            id="muscle-select"
+            class="flex-1 min-w-[150px] p-3 rounded-lg border border-gray-200 capitalize focus:outline-none focus:ring-2 focus:ring-sky-500"
+          >
+            <option value="">All Muscles</option>
+            <option value="abdominals">abdominals</option>
+            <option value="abductors">abductors</option>
+            <option value="adductors">adductors</option>
+            <option value="biceps">biceps</option>
+            <option value="calves">calves</option>
+            <option value="chest">chest</option>
+            <option value="forearms">forearms</option>
+            <option value="glutes">glutes</option>
+            <option value="hamstrings">hamstrings</option>
+            <option value="lats">lats</option>
+            <option value="lower back">lower back</option>
+            <option value="middle back">middle back</option>
+            <option value="neck">neck</option>
+            <option value="quadriceps">quadriceps</option>
+            <option value="shoulders">shoulders</option>
+            <option value="traps">traps</option>
+            <option value="triceps">triceps</option>
+          </select>
+          <button 
+            type="submit"
+            class="px-6 py-3 rounded-lg bg-sky-500 hover:bg-sky-600 text-white font-bold transition-colors"
+          >
+            Search
+          </button>
+          <button 
+            type="button"
+            id="clear-btn"
+            class="px-6 py-3 rounded-lg bg-red-500 hover:bg-red-600 text-white font-bold transition-colors"
+          >
+            Clear
+          </button>
+        </form>
+
+        <div id="exercise-list-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        </div>
+        <div id="exercise-loader" class="hidden text-center py-8 text-slate-500">Searching exercises...</div>
+        <div id="exercise-error" class="hidden text-red-500 bg-red-50 p-4 rounded-lg border border-red-300 mb-4"></div>
+        <div id="exercise-empty" class="hidden text-center text-slate-500 py-8">No exercises found right now. Try searching for "squat" or filtering by muscle!</div>
+      </section>
+
+      <section class="mt-12 mb-12">
+        <h2 class="text-xl font-semibold mb-4 text-slate-900">Workout Log</h2>
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+          <form id="workout-form" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
+            <input type="date" id="w-date" required class="p-3 rounded border border-gray-200 col-span-2 md:col-span-1" />
+            <input type="text" id="w-exercise" placeholder="Exercise Name" required class="p-3 rounded border border-gray-200 col-span-2 md:col-span-1" />
+            <input type="number" id="w-sets" placeholder="Sets" min="1" required class="p-3 rounded border border-gray-200" />
+            <input type="number" id="w-reps" placeholder="Reps" min="1" required class="p-3 rounded border border-gray-200" />
+            <input type="number" id="w-weight" step="0.5" min="0" placeholder="Weight" required class="p-3 rounded border border-gray-200" />
+            <input type="number" id="w-rpe" min="1" max="10" step="0.5" placeholder="RPE (Opt)" class="p-3 rounded border border-gray-200" />
+            <input type="text" id="w-notes" placeholder="Notes (Drop sets, etc. Optional)" class="p-3 rounded border border-gray-200 md:col-span-4 lg:col-span-6" />
+            <button type="submit" class="p-3 rounded bg-emerald-500 hover:bg-emerald-600 text-white font-bold transition-colors md:col-span-4 lg:col-span-6">
+              Add Workout
+            </button>
+          </form>
+
+          <div class="flex justify-between items-center mb-4 flex-wrap gap-4">
+            <h3 class="text-lg font-semibold text-slate-900 m-0">Recent Workouts</h3>
+          </div>
+
+          <div id="workout-list" class="flex flex-col gap-3">
+            <p id="no-workouts-msg" class="text-slate-500">No workouts logged yet.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  
+  <script src="./app.js"></script>
+</body>
 </html>
