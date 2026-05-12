@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1776053183106,
+    "exerciseName": "cable reverse-grip straight back seated high row",
+    "sets": 3,
+    "reps": 12,
+    "weight": 60,
+    "volume": 2160,
+    "date": "2026-04-13",
+    "rpe": 2,
+    "note": ""
+  },
+  {
+    "id": 1776053073377,
+    "exerciseName": "biceps narrow pull-ups",
+    "sets": 3,
+    "reps": 12,
+    "weight": 10,
+    "volume": 360,
+    "date": "2026-04-13",
+    "rpe": 1,
+    "note": ""
+  }
+]
